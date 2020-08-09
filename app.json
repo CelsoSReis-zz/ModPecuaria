@@ -4,9 +4,9 @@
     "slug": "ModPecuaria",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/img/icon.png",
+    "icon": "./src/assets/img/icon.png",
     "splash": {
-      "image": "./assets/img/splash.png",
+      "image": "./src/assets/img/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#000"
     },
@@ -20,7 +20,7 @@
       "supportsTablet": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/favicon.png"
     }
   }
 }
