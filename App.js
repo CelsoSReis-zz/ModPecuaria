@@ -1,42 +1,24 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Button, Modal } from 'react-native';
-import Entrar from './src/Entrar';
+import {View, StyleSheet} from 'react-native';
 
-export default class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      modalVisible:false
-    };
+import Formulario from './src/login';
 
-    this.entrar = this.entrar.bind(this);
-    this.sair = this.sair.bind(this);
-  
-  }
-  entrar(){
-    this.setState({modalVisible: true});
-  }
-  sair(visible){
-    this.setState({modalVisible: visible});
-  }
-
+class App extends Component {
   render(){
-    return (
-      <View style={styles.container}>
-        <Button title="Entrar" onPress={ this.entrar } />
-        <Modal animationType="slide" visible={this.state.modalVisible} >
-          <Entrar fechar={ () => this.sair(false)} />
-        </Modal>
+    return(
+      <View style={styles.viewGeral}>
+        <Formulario />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  viewGeral: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#0088e8',
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})
+export default App;
