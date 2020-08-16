@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {View, TouchableOpacity, Modal, Text, StyleSheet, Image, TextInput} from 'react-native';
-import logos from '../assets/img/logo.png'
+import logos from '../../assets/img/logo.png';
+/*import { useNavigation } from '@react-navigation/native'; não precisa importar o useNavigationna classe*/
 
-class Formulario extends Component {
+class Login extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -10,6 +11,7 @@ class Formulario extends Component {
     };
     this.entrar = this.entrar.bind(this);
     this.sair = this.sair.bind(this);
+    this.paginaHome = this.paginaHome.bind(this);
   }
   entrar(){
     this.setState({ modalVisible:true });
@@ -17,6 +19,9 @@ class Formulario extends Component {
   sair(visible) {
     this.setState({ modalVisible: visible });
   }
+  paginaHome() {
+    this.props.navigation.navigate('Home');
+}
   render() {
     return(
       <View>
@@ -39,9 +44,14 @@ class Formulario extends Component {
               <TextInput style={styles.inputUsuario} placeholder='Usuário' />
               <TextInput style={styles.inputSenha} placeholder='Senha'/>
             </View>
-            <View style={styles.loginCancelar}>
+            <View style={styles.loginEntrarECancelar}>
+              <TouchableOpacity onPress={this.paginaHome} style={styles.btnModalEntrar}>
+                <View style={styles.btnAreaModal}>
+                  <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13}}>Entrar</Text>
+                </View>
+              </TouchableOpacity>
               <TouchableOpacity onPress={ () => this.sair(false)} style={styles.btnCancelar}>
-                <View>
+                <View style={styles.btnAreaModal}>
                   <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13}}>CANCELAR</Text>
                 </View>
               </TouchableOpacity>
@@ -85,22 +95,35 @@ create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  loginCancelar: {
+  loginEntrarECancelar: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  btnCancelar: {
-    width: 200,
+  btnAreaModal: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  btnModalEntrar: {
+    width: 230,
     height: 50,
     borderWidth: 2,
     borderColor: '#fff',
     borderRadius: 25,
     marginTop: 20,
     backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
+  },
+  btnCancelar: {
+    width: 230,
+    height: 50,
+    borderWidth: 2,
+    borderColor: '#fff',
+    borderRadius: 25,
+    marginTop: 20,
+    backgroundColor: 'red',
   },
   inputLogin: {
     flex: 1,
@@ -133,4 +156,4 @@ create({
   }
 });
 
-export default Formulario;
+export default Login;

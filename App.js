@@ -1,24 +1,22 @@
-import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import Formulario from './src/login';
+import Login from './src/pages/Login';
+import Home from './src/pages/Home';
+import Cadastro from './src/pages/Cadastro';
 
-class App extends Component {
-  render(){
-    return(
-      <View style={styles.viewGeral}>
-        <Formulario />
-      </View>
+const Stack = createStackNavigator();
+
+export default function App(){
+    return (     
+        <NavigationContainer>
+              <Stack.Navigator initialRouteName="Login" >
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="Cadastro" component={Cadastro} />
+            </Stack.Navigator>
+        </NavigationContainer>    
     );
-  }
 }
 
-const styles = StyleSheet.create({
-  viewGeral: {
-    flex: 1,
-    backgroundColor: '#0088e8',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
-export default App;
