@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Bovinos({ route }) {
@@ -7,7 +7,29 @@ export default function Bovinos({ route }) {
 
  return (
    <View>
-     <Text>Bovinos</Text>
+     <View>
+     <TouchableOpacity>
+       <Text>Compra de Animais</Text>
+     </TouchableOpacity>
+
+     <TouchableOpacity>
+       <Text>Ganho de Peso</Text>
+     </TouchableOpacity>
+     
+     <TouchableOpacity>
+       <Text>Vacinação</Text>
+     </TouchableOpacity>
+
+     <TouchableOpacity>
+       <Text>IATF</Text>
+     </TouchableOpacity>
+
+     <TouchableOpacity>
+       <Text>Mortes</Text>
+     </TouchableOpacity>
+
+
+   </View>
      <Button
      title="Voltar para Home!"
      onPress={ () => navigation.goBack() }

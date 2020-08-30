@@ -6,14 +6,15 @@ export default function CadBovinos() {
     const navigation = useNavigation();
     return(
         <View>
+
             <Text>Controle de Bovinos</Text>
             <Button
             title="Voltar para Bovinos!"
-            onPress={ () => navigation.goBack() }
+            onPress={ () => navigation.goBack() }//Volta uma página
             />
             <Button
             title="Voltar para Home!"
-            onPress={ () => navigation.dispatch(StackActions.popToTop()) }
+            onPress={ () => navigation.dispatch(StackActions.popToTop()) }//volta página inicial
             />
       </View>
     );

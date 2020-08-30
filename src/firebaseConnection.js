@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/database';
 
-var firebaseConfig = {
+let firebaseConfig = {
     apiKey: "AIzaSyA0j03uT5e7WbZxvbb_zWUnQpdKCx7PVF0",
     authDomain: "rwgestagropec.firebaseapp.com",
     databaseURL: "https://rwgestagropec.firebaseio.com",
@@ -12,4 +12,8 @@ var firebaseConfig = {
     measurementId: "G-M538MX8H7X"
   };
   // Initialize Firebase
+if(!firebase.apps.lenght){
+  //abrir minha conexão
   firebase.initializeApp(firebaseConfig);
+}
+export default firebase;

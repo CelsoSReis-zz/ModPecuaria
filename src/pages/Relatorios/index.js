@@ -2,11 +2,11 @@ import React from 'react';
 import {View, Text, Button} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Benfeitorias({routes}) {
+export default function Relatorios({routes}) {
     const navigation = useNavigation();
     return(
         <View>
-            <Text>Benfeitorias</Text>
+            <Text>Relatórios</Text>
             <Button
             title="Voltar para Home!"
             onPress={ () => navigation.goBack() }
