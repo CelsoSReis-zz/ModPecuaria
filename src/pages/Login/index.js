@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet, Image, TextInput} from 'react-native';
 import logos from '../../assets/img/logo.png';
+import Icon from 'react-native-vector-icons/FontAwesome';
 /*import { useNavigation } from '@react-navigation/native'; não precisa importar o useNavigationna classe*/
 
 class Login extends Component {
@@ -27,6 +28,7 @@ class Login extends Component {
             <View style={styles.loginBtn}>
               <TouchableOpacity onPress={this.paginaHome} style={styles.btnEntrar}>
                 <View style={styles.btnAreaModal}>
+                  <Icon name="google" size={20} color="#fff" />
                   <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13}}>Entrar</Text>
                 </View>
               </TouchableOpacity>
