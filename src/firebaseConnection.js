@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/database';
 
 let firebaseConfig = {
@@ -11,7 +12,7 @@ let firebaseConfig = {
     appId: "1:597397636350:web:4690f389892684395f11af",
     measurementId: "G-M538MX8H7X"
   };
-  // Initialize Firebase
+  // Initialize Firebase condição "if" é para não haver duplicidade da conexão
 if(!firebase.apps.lenght){
   //abrir minha conexão
   firebase.initializeApp(firebaseConfig);

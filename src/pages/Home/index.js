@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image,TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import logos from '../../assets/img/logo.png';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 
 export default function Home() {
@@ -63,9 +64,10 @@ const styles = StyleSheet.create({
   homeGeral: {
     flex: 1,
     flexDirection: 'column',
+    paddingTop: 0 + getStatusBarHeight(), /*0 + getStatusBarHeight(true) somente se aplica ao ios*/
   },
   logotipo: {
-    padding: 20,
+    padding: 0,
     alignItems: 'center',
     justifyContent: 'center',
   },

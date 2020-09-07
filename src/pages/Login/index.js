@@ -28,13 +28,14 @@ class Login extends Component {
             <View style={styles.loginBtn}>
               <TouchableOpacity onPress={this.paginaHome} style={styles.btnEntrar}>
                 <View style={styles.btnAreaModal}>
-                  <Icon name="google" size={20} color="#fff" />
-                  <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13}}>Entrar</Text>
+                  <Icon name="sign-in" size={19} color="#fff" />
+                  <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13, padding: 18}}>Entrar</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={ () => this.sair(false)} style={styles.btnCancelar}>
                 <View style={styles.btnAreaModal}>
-                  <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13}}>Cancelar</Text>
+                  <Icon name="ban" size={18} color="#fff" />
+                  <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13, padding: 7}}>Cancelar</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -52,7 +53,6 @@ create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
   },
   logotipo: {
     flex: 1,

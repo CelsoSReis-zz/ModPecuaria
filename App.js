@@ -1,9 +1,11 @@
+import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {Text, View} from 'react-native';
+import {StatusBar} from 'react-native';
 import firebase from './src/firebaseConnection';
 
+import Routes from './src/routes';
 import Login from './src/pages/Login';
 import Home from './src/pages/Home';
 import Bovinos from './src/pages/Bovinos';
@@ -21,7 +23,7 @@ export default function App(){
     const [nome, setNome] = useState('Carregando...');
     const [idade, setIdade] = useState('');
 
-    useEffect(()=> {
+   {/* useEffect(()=> {
         async function dados(){
             await firebase.database().ref('usuarios/1').on('value', (snapshot)=> {
                 setNome(snapshot.val().nome);
@@ -30,13 +32,16 @@ export default function App(){
         }
         dados();
     }, []);
-    
+    */}
     return (
         <NavigationContainer>
+            <Routes />
+            <StatusBar backgroundColor="transparent" barStyle="dark-content"
+                translucent={true} />
             {/*<View style={{marginTop: 30,marginLeft: 30}}>
                 <Text>Olá {nome}</Text>
                 <Text>{idade}</Text>     
-    </View>*/}
+    </View>
               <Stack.Navigator initialRouteName="Login" >
               <Stack.Screen name="Login" component={Login} />
               <Stack.Screen name="Home" component={Home} />
@@ -46,7 +51,7 @@ export default function App(){
               <Stack.Screen name="Relatorios" component={Relatorios} />
               <Stack.Screen name="CadBovinos" component={CadBovinos} />
 
-            </Stack.Navigator>
+            </Stack.Navigator>*/}
         </NavigationContainer>    
     );
 }
