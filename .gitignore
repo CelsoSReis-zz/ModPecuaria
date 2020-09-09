@@ -8,8 +8,6 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-*.firebaseConnection.js
-.firebaseConnection.js
 firebaseConnection.js
 # macOS
 .DS_Store
