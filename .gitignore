@@ -9,6 +9,6 @@ npm-debug.*
 *.orig.*
 web-build/
 firebaseConnection.js
-
+/media/celso/Arquivos Linux/GitHub/ModPecuaria/src/firebaseConnection.js
 # macOS
 .DS_Store
