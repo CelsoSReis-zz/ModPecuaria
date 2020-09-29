@@ -1,11 +1,11 @@
 import 'react-native-gesture-handler';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import {StatusBar} from 'react-native';
 import firebase from './src/firebaseConnection';
 
-import Routes from './src/routes';
+import Routes from './src/routes/index';
 import Login from './src/pages/Login';
 import Home from './src/pages/Home';
 import Bovinos from './src/pages/Bovinos';
