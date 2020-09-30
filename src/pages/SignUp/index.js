@@ -1,26 +1,24 @@
 import React, {useState} from 'react';
-import {View, TouchableOpacity, Text, StyleSheet, Image, TextInput, Platform} from 'react-native';
-import logos from '../../assets/img/logo.png';
+import {View, TouchableOpacity, Text, StyleSheet, TextInput, Platform} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-export default function SignIn() {
+export default function SignUp() {
+  const [nome, setNome ] = useState('');
   const [email, setEmail ] = useState('');
   const [password, setPassword ] = useState('');
   return(
         <View style={styles.login} behavior={Platform.OS === 'ios' ? 'padding' : ''} enable >
-          <View style={styles.logotipo}>
-            <Image source={logos} style={{ width: 250, height: 75 }} />
-          </View>
           <View style={styles.inputLogin}>
-            <TextInput style={styles.inputUsuario} placeholder='Email' autoCorrect={false} autoCapitalize="email" onChangeText={ (text) => setEmail(text)} />
+            <TextInput style={styles.inputNome} placeholder='Nome' autoCorrect={false} autoCapitalize="nome" onChangeText={ (text) => setNome(text)} value={nome} />
+            <TextInput style={styles.inputUsuario} placeholder='Email' autoCorrect={false} autoCapitalize="email" onChangeText={ (text) => setEmail(text)} value={email}/>
             <TextInput style={styles.inputSenha} placeholder='Senha' autoCorrect={false} autoCapitalize="password" onChangeText={ (text) => setPassword(text)} value={password} />
           </View>
               <View style={styles.loginBtn}>
                 <TouchableOpacity style={styles.btnEntrar}>
                   <View style={styles.btnAreaModal}>
                     <Icon name="sign-in" size={19} color="#fff" />
-                    <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13, padding: 18}}>Entrar</Text>
+                    <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13, padding: 18}}>Cadastrar</Text>
                   </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.btnCancelar}>
@@ -42,11 +40,6 @@ export default function SignIn() {
     btnArea: {
       flex: 1,
       flexDirection: 'row',
-      justifyContent: 'center',
-    },
-    logotipo: {
-      flex: 1,
-      alignItems: 'center',
       justifyContent: 'center',
     },
     loginBtn: {
@@ -83,6 +76,19 @@ export default function SignIn() {
       justifyContent: 'center',
       alignItems: 'center'
     },
+    inputNome: {
+      width: 300,
+      padding: 4,
+      borderColor: 'red',
+      borderWidth: 1.5,
+      marginBottom: 18,
+      fontSize: 20,
+      fontWeight: 'bold',
+      borderRadius: 10,
+      backgroundColor: '#fff',
+      textAlign: 'left',
+      marginTop: 60,
+    },
     inputUsuario:{
       width: 300,
       padding: 4,
@@ -93,7 +99,7 @@ export default function SignIn() {
       fontWeight: 'bold',
       borderRadius: 10,
       backgroundColor: '#fff',
-      textAlign: 'center',
+      textAlign: 'left',
     },
     inputSenha:{
       width: 300,
@@ -105,7 +111,7 @@ export default function SignIn() {
       fontWeight: 'bold',
       borderRadius: 10,
       backgroundColor: '#fff',
-      textAlign: 'center',
+      textAlign: 'left',
     }
   });
   

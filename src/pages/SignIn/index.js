@@ -2,9 +2,12 @@ import React, {useState} from 'react';
 import {View, TouchableOpacity, Text, StyleSheet, Image, TextInput, Platform} from 'react-native';
 import logos from '../../assets/img/logo.png';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
 
-export default function SignIn() {
+export default function SignIn(){
+  const navigation = useNavigation();
+
   const [email, setEmail ] = useState('');
   const [password, setPassword ] = useState('');
   return(
@@ -13,7 +16,7 @@ export default function SignIn() {
             <Image source={logos} style={{ width: 250, height: 75 }} />
           </View>
           <View style={styles.inputLogin}>
-            <TextInput style={styles.inputUsuario} placeholder='Email' autoCorrect={false} autoCapitalize="email" onChangeText={ (text) => setEmail(text)} />
+            <TextInput style={styles.inputUsuario} placeholder='Email' autoCorrect={false} autoCapitalize="email" onChangeText={ (text) => setEmail(text)} value={email} />
             <TextInput style={styles.inputSenha} placeholder='Senha' autoCorrect={false} autoCapitalize="password" onChangeText={ (text) => setPassword(text)} value={password} />
           </View>
               <View style={styles.loginBtn}>
@@ -28,6 +31,9 @@ export default function SignIn() {
                     <Icon name="ban" size={18} color="#fff" />
                     <Text style={{color: '#fff', fontWeight: 'bold', fontSize: 13, padding: 7}}>Cancelar</Text>
                   </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={ () => navigation.navigate('SignUp')} style={styles.criaConta}>
+                  <Text style={styles.criaContaText}>Criar Uma Conta</Text>
                 </TouchableOpacity>
               </View>
         </View>
@@ -106,6 +112,13 @@ export default function SignIn() {
       borderRadius: 10,
       backgroundColor: '#fff',
       textAlign: 'center',
+    },
+    criaConta:{
+      textAlign: 'center',
+      margin: 20,
+    },
+    criaContaText:{
+      color: '#708090',
     }
   });
   
