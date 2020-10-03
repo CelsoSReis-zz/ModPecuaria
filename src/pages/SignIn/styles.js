@@ -13,7 +13,9 @@ import styled from 'styled-components/native';
  justify-content: center;
  `;
  export const Logo = styled.Image`
- margin-bottom: 15px;
+ margin-bottom: 115px;
+ width: 250px;
+ height: 60px;
  `;
  export const AreaInput = styled.View`
  flex-direction: row;
