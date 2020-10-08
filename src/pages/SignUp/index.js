@@ -1,9 +1,8 @@
 import React, {useState, useContext} from 'react';
-import { Platform } from 'react-native';
+import {View, TouchableOpacity, Text, Image, TextInput, Platform} from 'react-native';
 
 
-import { Background, Container, Logo, AreaInput, Input, SubmitButton, 
-SubmitText} from '../SignIn/styles';
+import styles from '../SignIn/styles';
 
 import { AuthContext } from '../../contexts/auth';
 
@@ -15,48 +14,51 @@ export default function SignIn() {
 
   console.log(user.nome);
 
- return (
-   <Background>
-      <Container
-      behavior={Platform.OS === 'ios' ? 'padding' : ''}
-      enabled
-      >
-
-        <AreaInput>
-          <Input
-          placeholder="Nome"
-          autoCorrect={false}
-          autoCapitalize="none"
-          value={nome}
-          onChangeText={ (text) => setNome(text) }
-          />
-        </AreaInput>
-
-        <AreaInput>
-          <Input
-          placeholder="Email"
-          autoCorrect={false}
-          autoCapitalize="none"
-          value={email}
-          onChangeText={ (text) => setEmail(text) }
-          />
-        </AreaInput>
-
-        <AreaInput>
-          <Input
-          placeholder="Senha"
-          autoCorrect={false}
-          autoCapitalize="none"
-          value={password}
-          onChangeText={ (text) => setPassword(text) }
-          />
-        </AreaInput>
-
-      <SubmitButton>
-        <SubmitText>Cadastrar</SubmitText>
-      </SubmitButton>
-
-      </Container>
-   </Background>
-  );
+  return (
+    <View style={styles.geral} >
+       <View
+       style={styles.formView}
+       behavior={Platform.OS === 'ios' ? 'padding' : ''}
+       enabled
+       >         
+         <View style={styles.AreaInput}>
+           <TextInput
+           style={styles.textoInput}
+           placeholder="Nome"
+           autoCorrect={false}
+           autoCapitalize="none"
+           value={nome}
+           onChangeText={ (text) => setNome(text) }
+           />
+         </View>
+         
+         <View style={styles.AreaInput}>
+           <TextInput
+           style={styles.textoInput}
+           placeholder="Email"
+           autoCorrect={false}
+           autoCapitalize="none"
+           value={email}
+           onChangeText={ (text) => setEmail(text) }
+           />
+         </View>
+ 
+         <View style={styles.AreaInput}>
+           <TextInput
+           style={styles.textoInput}
+           placeholder="Senha"
+           autoCorrect={false}
+           autoCapitalize="none"
+           value={password}
+           onChangeText={ (text) => setPassword(text) }
+           />
+         </View>
+ 
+       <TouchableOpacity style={styles.botaoCadastrar}>
+         <Text style={styles.textoCadastrar}>Cadastrar</Text>
+       </TouchableOpacity>
+ 
+       </View>
+    </View>
+   );
 }

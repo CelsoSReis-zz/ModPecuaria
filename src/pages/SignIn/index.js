@@ -1,10 +1,9 @@
 import React, {useState, useContext} from 'react';
-import { Platform } from 'react-native';
+import {View, TouchableOpacity, Text, Image, TextInput, Platform} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { AuthContext } from '../../contexts/auth';
 
-import { Background, Container, Logo, AreaInput, Input, SubmitButton, 
-SubmitText, Link, LinkText} from './styles';
+import styles from './styles';
 
 export default function SignIn() {
   const navigation = useNavigation();
@@ -20,42 +19,45 @@ export default function SignIn() {
   }
 
  return (
-   <Background>
-      <Container
+   <View style={styles.geral} >
+      <View
+      style={styles.formView}
       behavior={Platform.OS === 'ios' ? 'padding' : ''}
       enabled
       >
-        <Logo source={require('../../assets/Logo.png')}/>
+        <Image style={styles.logo} source={require('../../assets/Logo.png')}/>
         
-        <AreaInput>
-          <Input
+        <View style={styles.AreaInput}>
+          <TextInput
+          style={styles.textoInput}
           placeholder="Email"
           autoCorrect={false}
           autoCapitalize="none"
           value={email}
           onChangeText={ (text) => setEmail(text) }
           />
-        </AreaInput>
+        </View>
 
-        <AreaInput>
-          <Input
+        <View style={styles.AreaInput}>
+          <TextInput
+          style={styles.textoInput}
           placeholder="Senha"
           autoCorrect={false}
           autoCapitalize="none"
           value={password}
           onChangeText={ (text) => setPassword(text) }
           />
-        </AreaInput>
+        </View>
 
-      <SubmitButton onPress={handleLogin}>
-        <SubmitText>Acessar</SubmitText>
-      </SubmitButton>
+      <TouchableOpacity style={styles.botaoEntrar} onPress={handleLogin}>
+        <Text style={styles.textoAcessar}>Acessar</Text>
+      </TouchableOpacity>
 
-      <Link onPress={ () => navigation.navigate('SignUp')}>
-        <LinkText>Criar uma conta!</LinkText>
-      </Link>
+      <TouchableOpacity style={styles.link} onPress={ () => navigation.navigate('SignUp')}>
+        <Text style={styles.textolink}>Criar uma conta!</Text>
+      </TouchableOpacity>
 
-      </Container>
-   </Background>
+      </View>
+   </View>
   );
 }
