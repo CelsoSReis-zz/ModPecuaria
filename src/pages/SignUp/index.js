@@ -1,18 +1,20 @@
 import React, {useState, useContext} from 'react';
 import {View, TouchableOpacity, Text, Image, TextInput, Platform} from 'react-native';
 
-
+import { AuthContext } from '../../contexts/auth';
 import styles from '../SignIn/styles';
 
-import { AuthContext } from '../../contexts/auth';
 
 export default function SignIn() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { user } = useContext(AuthContext);
+  
+  const { signUp } = useContext(AuthContext);
 
-  console.log(user.nome);
+  function handleSignUp(){
+    signUp(email, password, nome);
+  }
 
   return (
     <View style={styles.geral} >
@@ -54,7 +56,7 @@ export default function SignIn() {
            />
          </View>
  
-       <TouchableOpacity style={styles.botaoCadastrar}>
+       <TouchableOpacity style={styles.botaoCadastrar} onPress={handleSignUp}>
          <Text style={styles.textoCadastrar}>Cadastrar</Text>
        </TouchableOpacity>
  
